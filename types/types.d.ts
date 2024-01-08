@@ -1,29 +1,35 @@
-import React, { ReactNode } from 'react';
+import {ReactNode} from 'react';
 import {
-    Page,
     AppBreadcrumbProps,
+    AppConfigProps,
+    AppMenuItem,
+    AppMenuItemProps,
+    AppTopbarRef,
     Breadcrumb,
     BreadcrumbItem,
-    MenuProps,
-    MenuModel,
-    AppSubMenuProps,
+    ChatContextProps,
     LayoutConfig,
-    LayoutState,
-    AppBreadcrumbState,
-    Breadcrumb,
     LayoutContextProps,
+    LayoutState,
     MailContextProps,
     MenuContextProps,
-    ChatContextProps,
-    TaskContextProps,
-    AppConfigProps,
+    MenuModel,
+    MenuProps,
     NodeRef,
-    AppTopbarRef,
-    MenuModelItem,
-    AppMenuItemProps,
-    AppMenuItem
+    Page,
+    TaskContextProps
 } from './layout';
-import { Demo, LayoutType, SortOrderType, CustomEvent, ChartDataState, ChartOptionsState, AppMailSidebarItem, AppMailReplyProps, AppMailProps } from './demo';
+import {
+    AppMailProps,
+    AppMailReplyProps,
+    AppMailSidebarItem,
+    ChartDataState,
+    ChartOptionsState,
+    CustomEvent,
+    Demo,
+    LayoutType,
+    SortOrderType
+} from './demo';
 
 type ChildContainerProps = {
     children: ReactNode;
@@ -32,7 +38,6 @@ type ChildContainerProps = {
 export type {
     Page,
     AppBreadcrumbProps,
-    Breadcrumb,
     BreadcrumbItem,
     MenuProps,
     MenuModel,

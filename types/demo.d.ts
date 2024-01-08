@@ -1,8 +1,8 @@
 /* FullCalendar Types */
-import { EventApi, EventInput } from '@fullcalendar/core';
+import {EventInput} from '@fullcalendar/core';
 
 /* Chart.js Types */
-import { ChartData, ChartOptions } from 'chart.js';
+import {ChartData, ChartOptions} from 'chart.js';
 
 type InventoryStatus = 'INSTOCK' | 'LOWSTOCK' | 'OUTOFSTOCK';
 
