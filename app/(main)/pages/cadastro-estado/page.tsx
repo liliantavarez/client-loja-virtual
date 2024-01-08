@@ -35,14 +35,7 @@ const CadastroProduto = () => {
     const fetchEstados = () => {
         buscarEstados()
             .then((data) => setEstados(data.data))
-            .catch((error) => {
-                toast.current?.show({
-                    severity: 'error',
-                    summary: 'Erro!',
-                    detail: 'Erro ao buscar estados' + error.response.data,
-                    life: 3000,
-                });
-            });
+            .catch((error) => console.error('Error fetching estados:', error));
     };
 
     const abrirModelCadastroEvento = () => {
@@ -67,6 +60,8 @@ const CadastroProduto = () => {
             const dadosEstado = {...estado};
 
             if (estado.id) {
+                console.log("IF")
+
                 editarEstado(estado.id, dadosEstado)
                     .then(() => {
                         toast.current?.show({
@@ -77,18 +72,13 @@ const CadastroProduto = () => {
                         });
                         fetchEstados();
                         setEstadosDialog(false);
+
                     })
-                    .catch((error) => {
-                        toast.current?.show({
-                            severity: 'error',
-                            summary: 'Erro!',
-                            detail: 'Erro ao atualizar o dados do estado' + error.response.data,
-                            life: 3000,
-                        });
-                    });
+                    .catch((error) => console.error('Error updating estado:', error));
             } else {
                 cadastrarEstado(dadosEstado)
                     .then(() => {
+                        console.log("ELSE")
                         toast.current?.show({
                             severity: 'success',
                             summary: 'Bem Sucedido',
@@ -99,6 +89,7 @@ const CadastroProduto = () => {
                         setEstadosDialog(false);
                     })
                     .catch((error) => {
+                        console.error('Error creating estado:', error)
                         toast.current?.show({
                             severity: 'error',
                             summary: 'Erro!',
@@ -125,27 +116,21 @@ const CadastroProduto = () => {
     };
 
     const deletarEstado = () => {
+        console.log(estado)
         if (!estado.id) return;
 
         removerEstado(estado.id)
             .then(() => {
                 toast.current?.show({
                     severity: 'success',
-                    summary: 'Bem Sucedido',
+                    summary: 'Bem-sucedido',
                     detail: 'Estado excluído',
                     life: 3000,
                 });
                 fetchEstados();
                 setDeletarEstadoDialog(false);
             })
-            .catch((error) => {
-                toast.current?.show({
-                    severity: 'error',
-                    summary: 'Erro!',
-                    detail: 'Erro ao remover estado' + error.response.data,
-                    life: 3000,
-                });
-            });
+            .catch((error) => console.error('Error deleting estado:', error));
     };
 
     const onInputChangeNome = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -162,10 +147,12 @@ const CadastroProduto = () => {
 
     const leftToolbarTemplate = () => {
         return (
-            <div className="my-2">
-                <Button label="Novo" icon="pi pi-plus" severity="success" className="mr-2"
-                        onClick={abrirModelCadastroEvento}/>
-            </div>
+            <React.Fragment>
+                <div className="my-2">
+                    <Button label="Novo" icon="pi pi-plus" severity="success" className="mr-2"
+                            onClick={abrirModelCadastroEvento}/>
+                </div>
+            </React.Fragment>
         );
     };
 
