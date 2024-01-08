@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-
 import React from 'react';
 import AppMenuitem from './AppMenuitem';
 import {MenuProvider} from './context/menucontext';
@@ -10,7 +8,7 @@ const AppMenu = () => {
     const model: AppMenuItem[] = [
         {
             label: 'Home',
-            items: [{label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/'}]
+            items: [{label: 'Pagina Inicial', icon: 'pi pi-fw pi-home', to: '/'}]
         },
         {
             label: 'Cadastros',

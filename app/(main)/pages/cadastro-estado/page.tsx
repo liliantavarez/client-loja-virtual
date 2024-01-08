@@ -27,6 +27,7 @@ const CadastroProduto = () => {
     const dt = useRef<DataTable<DataTableValueArray>>(null)
 
     useEffect(() => {
+        console.log(estados)
         if (estados.length === 0) {
             fetchEstados();
         }
@@ -116,7 +117,6 @@ const CadastroProduto = () => {
     };
 
     const deletarEstado = () => {
-        console.log(estado)
         if (!estado.id) return;
 
         removerEstado(estado.id)
@@ -147,12 +147,10 @@ const CadastroProduto = () => {
 
     const leftToolbarTemplate = () => {
         return (
-            <React.Fragment>
-                <div className="my-2">
-                    <Button label="Novo" icon="pi pi-plus" severity="success" className="mr-2"
-                            onClick={abrirModelCadastroEvento}/>
-                </div>
-            </React.Fragment>
+            <div className="my-2">
+                <Button label="Novo" icon="pi pi-plus" severity="success" className="mr-2"
+                        onClick={abrirModelCadastroEvento}/>
+            </div>
         );
     };
 

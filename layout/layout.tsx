@@ -1,22 +1,14 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import { useRouter } from "next/navigation";
-import {
-  useEventListener,
-  useMountEffect,
-  useUnmountEffect,
-} from "primereact/hooks";
-import React, { useContext, useEffect, useRef } from "react";
-import { classNames } from "primereact/utils";
-import AppFooter from "./AppFooter";
+import {usePathname, useSearchParams} from "next/navigation";
+import {useEventListener, useMountEffect, useUnmountEffect,} from "primereact/hooks";
+import React, {useContext, useEffect, useRef} from "react";
+import {classNames} from "primereact/utils";
 import AppSidebar from "./AppSidebar";
 import AppTopbar from "./AppTopbar";
-import AppConfig from "./AppConfig";
-import { LayoutContext } from "./context/layoutcontext";
-import { PrimeReactContext } from "primereact/api";
-import { ChildContainerProps, LayoutState, AppTopbarRef } from "../types/types";
-import { usePathname, useSearchParams } from "next/navigation";
+import {LayoutContext} from "./context/layoutcontext";
+import {PrimeReactContext} from "primereact/api";
+import {AppTopbarRef, ChildContainerProps, LayoutState} from "../types/types";
 
 
 const Layout = ({ children }: ChildContainerProps) => {
@@ -144,20 +136,16 @@ const Layout = ({ children }: ChildContainerProps) => {
   });
 
   return (
-    <React.Fragment>
       <div className={containerClass}>
-        <AppTopbar ref={topbarRef} />
+        <AppTopbar ref={topbarRef}/>
         <div ref={sidebarRef} className="layout-sidebar">
-          <AppSidebar />
+          <AppSidebar/>
         </div>
         <div className="layout-main-container">
           <div className="layout-main">{children}</div>
-          <AppFooter />
         </div>
-        <AppConfig />
         <div className="layout-mask"></div>
       </div>
-    </React.Fragment>
   );
 };
 
